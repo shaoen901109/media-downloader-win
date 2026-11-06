@@ -1,0 +1,30 @@
+{
+  "_comment": "GUI(PowerShell) 與 mdl.py 共用的 yt-dlp 參數設定，改這裡兩邊同時生效。",
+  "common": [
+    "--newline",
+    "--no-warnings",
+    "--ignore-config",
+    "--concurrent-fragments", "4",
+    "--retries", "10",
+    "--fragment-retries", "10",
+    "--socket-timeout", "20",
+    "--no-overwrites",
+    "--windows-filenames"
+  ],
+  "video": {
+    "format_best": "bv*+ba/b",
+    "format_capped": "bv*[height<={H}]+ba/b[height<={H}]/bv*+ba/b",
+    "sort": "res,ext:mp4:m4a,vcodec:h264",
+    "extra": ["--merge-output-format", "mp4", "--embed-metadata"]
+  },
+  "audio": {
+    "format": "ba/b",
+    "extra": ["-x", "--audio-format", "mp3", "--embed-metadata", "--embed-thumbnail"]
+  },
+  "output_template": "%(title).120B [%(id)s].%(ext)s",
+  "output_template_playlist": "%(playlist_title,playlist_id|)s/%(playlist_index|)s%(title).100B [%(id)s].%(ext)s",
+  "quality_choices": ["best", "2160", "1440", "1080", "720", "480", "360"],
+  "audio_quality_choices": ["0", "320K", "256K", "192K", "128K"],
+  "_comment_bulk_sleep": "整批下載（images --all／GUI「整個帳號／珍藏」）時，每個檔案下載完之後的隨機等待秒數。常態分佈，中心為 mean（平均），超出 min～max 的值會夾回範圍內。mean 要介於 min 與 max 之間；設 max 為 0 即關閉等待。",
+  "bulk_sleep": { "mean": 2, "min": 0, "max": 4 }
+}

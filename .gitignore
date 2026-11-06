@@ -1,0 +1,19 @@
+# 免安裝執行檔（由「首次設定.bat」下載，不進版控）
+bin/
+
+# 下載產物
+downloads/
+*.part
+*.ytdl
+
+# GUI 使用者個人設定（輸出資料夾、上次選項等）
+config/gui_settings.json
+
+# 登入瀏覽器的專用設定檔（內含 IG/FB/X 等網站的登入 session，絕不進版控）。
+# 預設位置是 %LOCALAPPDATA%\影音下載器\browser（專案外，不會進版控也不會被同步）；
+# 這條只在用 -ProfilePath / MDL_BROWSER_PROFILE 指到專案內的 profile\ 時才用得到，保留以防萬一。
+profile/
+
+# Python
+__pycache__/
+*.pyc
