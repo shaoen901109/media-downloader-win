@@ -87,7 +87,7 @@ Security notes:
 - The profile is stored in `%LOCALAPPDATA%\影音下載器\browser` (outside the project, on purpose, so cloud-sync folders do not copy your sessions). Delete that folder to remove all sessions.
 - Exported cookie files are temporary and deleted right after each download; result JSON never contains cookie values.
 - The debug port listens on `127.0.0.1` only while the window is open; close it when not in use.
-- For heavy use, log in with a secondary account: IG / FB detect automation and may restrict accounts.
+- Avoid heavy downloading: IG / FB detect automation and may restrict accounts. If you get rate-limited, stop and follow the platform's rules.
 
 ## Configuration (`config\profiles.json`)
 
