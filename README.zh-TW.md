@@ -10,6 +10,8 @@
 > - 「登入瀏覽器／cookie 匯入」功能**只應用在你自己的帳號**。cookie 等同登入憑證，**請勿分享、上傳或提交到任何公開地方**。
 > - 使用者須**自行承擔一切法律責任**；本工具的作者與貢獻者不對使用者的任何行為或後果負責。不確定某個用途合不合法，就不要下載。
 
+> 📖 **圖文教學：** https://shao-en.com/blog/media-downloader-win-guide.html ——如果你不知道該如何操作，請把這篇文章交給你的 Claude 或 ChatGPT。
+
 一個放在資料夾裡就能用的 Windows 影音下載工具。底層是 [yt-dlp](https://github.com/yt-dlp/yt-dlp)（影片／音訊）+ [gallery-dl](https://codeberg.org/mikf/gallery-dl)（IG / FB / X 貼文照片）+ [ffmpeg](https://ffmpeg.org/)，執行檔都下載到專案的 `bin\` 資料夾裡，**不寫登錄檔、不裝到系統、不需要管理員權限**。整包資料夾複製到別台電腦或隨身碟就能繼續用；不想要了直接刪掉整個資料夾即可（登入瀏覽器的設定檔另外放在 `%LOCALAPPDATA%\影音下載器\`，見〈登入瀏覽器〉）。
 
 提供三種用法：**雙擊 GUI**、**命令列**、**給 AI agent 呼叫**。需要登入的內容（私人帳號、限時動態、會員影片…）用**登入瀏覽器**取得 cookie，平常用的 Chrome 不必關。

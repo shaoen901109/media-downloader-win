@@ -10,6 +10,8 @@
 > - The **login browser / cookie import feature must only be used with your own accounts.** Cookies are equivalent to login credentials: **never share, upload, or commit them anywhere public.**
 > - You bear **all legal responsibility** for how you use this tool. The author and contributors accept no liability for your actions or their consequences. If you are unsure whether a use is lawful, do not download.
 
+> 📖 **Step-by-step tutorial (Traditional Chinese):** https://shao-en.com/blog/media-downloader-win-guide.html — not sure how to set it up? Hand the article to Claude or ChatGPT and let it walk you through.
+
 A folder-based, no-install video/audio/photo downloader for Windows. It wraps [yt-dlp](https://github.com/yt-dlp/yt-dlp) (video/audio), [gallery-dl](https://codeberg.org/mikf/gallery-dl) (photos from IG / FB / X posts) and [FFmpeg](https://ffmpeg.org/). The executables are downloaded into the project's `bin\` folder: **no registry writes, no system install, no administrator rights.** Copy the folder to another PC or a USB stick and it keeps working; delete the folder to uninstall (the login-browser profile lives separately in `%LOCALAPPDATA%\影音下載器\`).
 
 Three ways to use it: **GUI** (double-click), **command line**, and **AI agent / MCP**.
