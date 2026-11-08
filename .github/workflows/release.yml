@@ -1,0 +1,36 @@
+name: Release
+
+# Pushing a tag like v1.0.0 builds the release zip, writes SHA256SUMS.txt,
+# records a build provenance attestation and publishes a GitHub Release.
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+  id-token: write
+  attestations: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build zip and checksums
+        run: |
+          NAME="${GITHUB_REPOSITORY#*/}-${GITHUB_REF_NAME}"
+          git archive --format=zip --prefix="${NAME}/" -o "${NAME}.zip" "${GITHUB_REF_NAME}"
+          sha256sum "${NAME}.zip" > SHA256SUMS.txt
+          cat SHA256SUMS.txt
+          echo "NAME=${NAME}" >> "$GITHUB_ENV"
+
+      - name: Attest build provenance
+        uses: actions/attest-build-provenance@v2
+        with:
+          subject-path: ${{ env.NAME }}.zip
+
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "${GITHUB_REF_NAME}" "${NAME}.zip" SHA256SUMS.txt --title "${GITHUB_REF_NAME}" --generate-notes --verify-tag

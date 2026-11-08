@@ -105,6 +105,28 @@ Shared by the GUI and the engine; edit once and both change. Main keys:
 
 Most failures are fixed by `mdl.bat update`. If PowerShell blocks the scripts, the `.bat` launchers already use `-ExecutionPolicy Bypass`. Antivirus software sometimes flags `yt-dlp.exe`; add `bin\` to its exclusions. More details (HTTP 403 / 429, cookie database errors, JavaScript runtime, long file names) are in the Traditional Chinese README.
 
+## Verify your download
+
+Download `media-downloader-win-v1.0.0.zip` and `SHA256SUMS.txt` from [Releases](https://github.com/shaoen901109/media-downloader-win/releases) (use the version you actually downloaded).
+
+1. Compare the checksum in PowerShell:
+
+   ```powershell
+   Get-FileHash .\media-downloader-win-v1.0.0.zip -Algorithm SHA256
+   ```
+
+   The `Hash` must match the string in `SHA256SUMS.txt` (letter case does not matter).
+
+2. Verify where it was built (needs [GitHub CLI](https://cli.github.com/)):
+
+   ```powershell
+   gh attestation verify .\media-downloader-win-v1.0.0.zip --repo shaoen901109/media-downloader-win
+   ```
+
+   A successful result means GitHub Actions built this zip from this repository's source and it was not swapped along the way.
+
+Commits marked **Verified** on GitHub are signed by the author.
+
 ## Credits
 
 This project is a wrapper around these open-source programs. They are invoked as **separate executables** and are **not distributed with this repo**; setup downloads them from their official sources at run time.
